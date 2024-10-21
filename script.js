@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const readmeElement = document.getElementById(`${projectId}-readme`);
 
             // Fetch the README.md file for the project
-            fetch(`https://raw.githubusercontent.com/yourusername/${projectId}/main/README.md`)
+            fetch(`https://raw.githubusercontent.com/ubetu/${projectId}/main/README.md`)
                 .then(response => {
                     if (!response.ok) throw new Error("Failed to load README.md");
                     return response.text();
