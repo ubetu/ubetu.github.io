@@ -1,31 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll('.project-card');
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all project cards
+    const projectCards = document.querySelectorAll(".project-card");
 
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            const projectId = this.dataset.project;
-            const modal = this.querySelector('.modal');
-            const readmeElement = document.getElementById(`${projectId}-readme`);
+    // Loop through each project card
+    projectCards.forEach(card => {
+        card.addEventListener("mouseenter", function() {
+            const projectId = card.getAttribute("data-project");
 
-            // Fetch the README.md file for the project
-            fetch(`https://raw.githubusercontent.com/ubetu/${projectId}/main/README.md`)
+            // Define the URL of the raw README.md for each project
+            const readmeUrl = `https://raw.githubusercontent.com/ubetu/${projectId}/main/README.md`;
+
+            // Fetch the README.md content
+            fetch(readmeUrl)
                 .then(response => {
-                    if (!response.ok) throw new Error("Failed to load README.md");
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
                     return response.text();
                 })
                 .then(data => {
-                    readmeElement.innerHTML = data.replace(/(?:\r\n|\r|\n)/g, '<br>'); // Insert README content with line breaks
-                    modal.style.display = 'block'; // Show modal
+                    // Find the corresponding modal and insert the README.md content
+                    const modal = document.getElementById(`${projectId}-modal`);
+                    modal.querySelector("p").innerText = data;
+
+                    // Display the modal
+                    modal.style.display = "block";
                 })
                 .catch(error => {
-                    readmeElement.innerHTML = "Error loading README.md"; // Error handling
-                    modal.style.display = 'block'; // Show modal even on error
+                    console.error("Error fetching the README:", error);
                 });
         });
 
-        card.addEventListener('mouseleave', function () {
-            const modal = this.querySelector('.modal');
-            modal.style.display = 'none'; // Hide modal when mouse leaves
+        // Hide the modal when the mouse leaves the card
+        card.addEventListener("mouseleave", function() {
+            const projectId = card.getAttribute("data-project");
+            const modal = document.getElementById(`${projectId}-modal`);
+            modal.style.display = "none";
         });
     });
 });
