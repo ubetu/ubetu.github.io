@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV of a programmer">
+    <title>Your Name - CV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="gradient-text">Your Name</h1>
+        <p class="subtext gradient-text">Programmer | Developer | Tech Enthusiast</p>
+    </header>
+
+    <section id="about" class="lighter-section">
+        <h2 class="gradient-text">About Me</h2>
+        <p>A passionate programmer with a love for creating beautiful and efficient code.</p>
+    </section>
+
+    <section id="skills" class="darker-section">
+        <h2 class="gradient-text">Skills</h2>
+        <div class="card-container">
+            <div class="card dark-blue-bg">
+                <i class="fas fa-code"></i>
+                <h3 class="gradient-text">Programming Languages</h3>
+                <p>Python, JavaScript, C++</p>
+            </div>
+            <div class="card dark-blue-bg">
+                <i class="fas fa-laptop-code"></i>
+                <h3 class="gradient-text">Frameworks</h3>
+                <p>React, Node.js, Django</p>
+            </div>
+            <div class="card dark-blue-bg">
+                <i class="fas fa-tools"></i>
+                <h3 class="gradient-text">Tools</h3>
+                <p>Git, Docker, AWS</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="lighter-section">
+        <h2 class="gradient-text">Projects</h2>
+        <div class="card-container">
+            <div class="card project-card" data-project="project1">
+                <i class="fas fa-project-diagram"></i>
+                <h3 class="gradient-text">Project 1</h3>
+                <p>An innovative app that automates tasks.</p>
+                <a href="https://github.com/yourusername/project1">GitHub Link</a>
+                <!-- Modal for Project 1 README -->
+                <div class="modal" id="project1-modal">
+                    <div class="modal-content">
+                        <h3>Project 1 README</h3>
+                        <p id="project1-readme">Loading README...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card project-card" data-project="project2">
+                <i class="fas fa-project-diagram"></i>
+                <h3 class="gradient-text">Project 2</h3>
+                <p>A web platform for collaborative coding.</p>
+                <a href="https://github.com/yourusername/project2">GitHub Link</a>
+                <!-- Modal for Project 2 README -->
+                <div class="modal" id="project2-modal">
+                    <div class="modal-content">
+                        <h3>Project 2 README</h3>
+                        <p id="project2-readme">Loading README...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="darker-section">
+        <h2 class="gradient-text">Contact</h2>
+        <p>Email: your.email@example.com</p>
+        <p>GitHub: <a href="https://github.com/yourusername">yourusername</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
